@@ -36,7 +36,7 @@
 ehthumbs.db
 Thumbs.db
 # Eclipse #
-settings/
+.settings
 .classpath
 .project
 target/
