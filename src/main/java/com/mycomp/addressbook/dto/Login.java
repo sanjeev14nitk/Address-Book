@@ -4,15 +4,15 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class Login {
-	private String userid;
+	private boolean userid;
 	private String username;
 	private String password;
 	private Date lastlogin;
 	//Timestamp timestamp = Timestamp.valueOf("2007-09-23 10:10:10.0");
-	public String getUserid() {
+	public boolean getUserid() {
 		return userid;
 	}
-	public void setUserid(String userid) {
+	public void setUserid(boolean userid) {
 		this.userid = userid;
 	}
 	public String getUsername() {

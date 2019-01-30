@@ -15,7 +15,7 @@ public class AbOperationsImpl implements AbOperations {
 	@Autowired
 	private JdbcTemplate jdbctemplate;
 
-	public String userLogin(final Login login) {
+	public boolean userLogin(final Login login) {
 		
 		String qry = "SELECT userid FROM project.login WHERE username = ? AND password = ? ";
 		
@@ -25,7 +25,7 @@ public class AbOperationsImpl implements AbOperations {
         	return login.getUserid();        
         	}	
 		else{
-			return null;
+			return (Boolean) null;
 			}
 	}		
 	
