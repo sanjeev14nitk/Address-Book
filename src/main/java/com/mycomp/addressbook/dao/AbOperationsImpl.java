@@ -17,7 +17,7 @@ public class AbOperationsImpl implements AbOperations {
 
 	public boolean userLogin(final Login login) {
 		
-		String qry = "SELECT COUNT(*) FROM public.emp_Cred WHERE username = ? AND password = ? ";
+		String qry = "SELECT COUNT(*) FROM project.login WHERE username = ? AND password = ? ";
 		
 		int count = jdbctemplate.queryForObject(qry, new Object[] {login.getUsername(),login.getPassword()}, Integer.class);
 		
