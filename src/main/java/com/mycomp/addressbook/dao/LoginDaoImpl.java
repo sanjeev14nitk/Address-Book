@@ -2,7 +2,6 @@ package com.mycomp.addressbook.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +9,7 @@ import com.mycomp.addressbook.dto.Login;
 
 @Repository
 @Transactional
-public class AbOperationsImpl implements AbOperations {
+public class LoginDaoImpl implements LoginDao {
 
 	@Autowired
 	private JdbcTemplate jdbctemplate;

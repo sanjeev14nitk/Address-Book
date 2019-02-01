@@ -5,14 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycomp.addressbook.dao.AbOperations;
+import com.mycomp.addressbook.dao.LoginDao;
 import com.mycomp.addressbook.dto.Login;
 
 @Controller
 public class AddressBookController {
 	
 	@Autowired 
-	private AbOperations abOperations;
+	private LoginDao LoginDao;
 	
 	@RequestMapping("login.htm")
 	public String welcome() {
@@ -21,7 +21,7 @@ public class AddressBookController {
 	
 	@RequestMapping("userlogin.htm")
 	public ModelAndView userLogin(Login login) {
-		boolean status = abOperations.userLogin(login);
+		boolean status = LoginDao.userLogin(login);
 		
 		ModelAndView mv = new ModelAndView();
 		
