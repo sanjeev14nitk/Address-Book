@@ -4,6 +4,6 @@ import com.mycomp.addressbook.dto.Login;
 
 public interface LoginDao {
 	
-	boolean userLogin(Login login);
+	String userLogin(Login login);
 
 }

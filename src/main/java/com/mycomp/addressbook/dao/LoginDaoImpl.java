@@ -14,17 +14,19 @@ public class LoginDaoImpl implements LoginDao {
 	@Autowired
 	private JdbcTemplate jdbctemplate;
 
-	public boolean userLogin(final Login login) {
+	public String userLogin(final Login login) {
 		
 		String qry = "SELECT userid FROM project.login WHERE username = ? AND password = ? ";
 		
 		String name = jdbctemplate.queryForObject(qry, new Object[] {login.getUsername(),login.getPassword()}, String.class);
 		
+		login.setUserid(name);
         if(name!=null && !name.isEmpty()) {
-        	return login.getUserid();        
+        	//return login.getUserid();      
+        	return name;
         	}	
 		else{
-			return (Boolean) null;
+			return null;
 			}
 	}		
 	
