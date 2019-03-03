@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,6 +19,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/success.js"></script>
+<script type="text/javascript" src="js/searchcontact.js"></script>
+<script src="bootstable.js"></script>
 <style>
 div.a {
 	text-align: center;
@@ -37,9 +39,10 @@ div.a {
 				<!-- <span class="label label-primary">Address Book</span> -->
 			</h1>
 		</div>
-	
-		<div class="alert alert-success" id="registerMsgDiv" style="display: none;padding-bottom:10px;"></div>
-    </div>
+
+		<div class="alert alert-success" id="registerMsgDiv"
+			style="display: none; padding-bottom: 10px;"></div>
+	</div>
 </body>
 
 <div>
@@ -53,19 +56,80 @@ div.a {
 <div id="search" class="tab-pane fade" style="width: 80%; margin: auto">
 	<div style="text-align: center; font-weight: bold; padding-top: 30px;"></div>
 	<div class="row"></div>
-	
+
 	<div class="form-group ">
-				<label class="control-label col-sm-2" for="userid">UserId:</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="text" id="userid" name="userid">
-					
-					<button type="button" id="searchBtn" class="btn btn-success">Search</button>
-				</div>
+		<label class="control-label col-sm-2" for="userid">UserId:</label>
+		<div class="col-sm-2">
+			<input class="form-control" type="text" id="userId" name="userid">
+		</div>
+		<div>
+			<button type="button" id="searchBtn" class="btn btn-success">Search</button>
+		</div>
+		<div class="table" id="contactDetailsDiv"
+			style="display: none; padding-bottom: 10px;">
+			<H3>User Details</H3>
+
+			<table style="width: 80%" class="table table-bordered" id="generalinfoTable">
+				<thead class="thead-dark">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+						<th>Date Of Birth</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="fName"></td>
+						<td id="lName"></td>
+						<td id="gender"></td>
+						<td id="dateOfBirth"></td>
+					</tr>
+				</tbody>
+			</table>
+			<table style="width: 80%" class="table table-bordered" id="addressTable">
+				<thead class="thead-light">
+					<tr>
+						<th>Street Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>ZipCode</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="streetAddr"></td>
+						<td id="city"></td>
+						<td id="state"></td>
+						<td id="zipCode"></td>
+					</tr>
+				</tbody>
+			</table>
+			<table style="width: 80%" class="table table-bordered" id="contactTable">
+				<thead class="thead-light">
+					<tr>
+						<th>Home Phone</th>
+						<th>Office Phone</th>
+						<th>Cell Phone</th>
+						<th>Email Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="homePhone"></td>
+						<td id="ofcPhone"></td>
+						<td id="cellPhone"></td>
+						<td id="email"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-			
+
 </div>
 
-<div id="register" class="tab-pane fade" style="width: 80%; margin: auto">
+<div id="register" class="tab-pane fade"
+	style="width: 80%; margin: auto">
 	<div style="text-align: center; font-weight: bold; padding-top: 30px;"></div>
 	<div class="row"></div>
 	<div class="panel panel-primary">
@@ -122,21 +186,21 @@ div.a {
 						autocomplete="off">
 				</div>
 			</div>
-			
+
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="form-group">
 					<input type="text" name="city" id="city" class="form-control"
 						placeholder="City name" tabindex="6" autocomplete="off">
 				</div>
 			</div>
-			
+
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="form-group">
 					<input type="text" name="state" id="state" class="form-control"
 						placeholder="State Name" tabindex="7" autocomplete="off">
 				</div>
 			</div>
-			
+
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="form-group">
 					<input type="text" name="zip" id="zipCode" class="form-control"
@@ -145,7 +209,7 @@ div.a {
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="panel panel-primary" id="contactinfo">
 		<div class="panel-heading">
 			<h3 class="panel-title">Contact Information</h3>
@@ -159,7 +223,7 @@ div.a {
 						autocomplete="off">
 				</div>
 			</div>
-			
+
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="form-group">
 					<input type="text" name="officephone" id="ofcPhone"
@@ -167,7 +231,7 @@ div.a {
 						autocomplete="off">
 				</div>
 			</div>
-			
+
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="form-group">
 					<input type="text" name="cellphone" id="cellPhone"
@@ -175,7 +239,7 @@ div.a {
 						autocomplete="off">
 				</div>
 			</div>
-			
+
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<div class="form-group">
 					<input type="text" name="email" id="email" class="form-control"
@@ -183,7 +247,7 @@ div.a {
 				</div>
 
 			</div>
-			
+
 			<button type="button" id="add" class="btn btn-success">+</button>
 		</div>
 	</div>

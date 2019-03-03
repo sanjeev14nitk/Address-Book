@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.mycomp.addressbook.dao.LoginDao;
+import com.mycomp.addressbook.dao.SearchDao;
+import com.mycomp.addressbook.dao.SearchDaoImpl;
 import com.mycomp.addressbook.dao.UserDAO;
 import com.mycomp.addressbook.dto.Login;
 import com.mycomp.addressbook.dto.Message;
+import com.mycomp.addressbook.dto.SearchContact;
 import com.mycomp.addressbook.dto.UserInfo;
 
 @Controller
@@ -19,6 +23,8 @@ public class AddressBookController {
 	private LoginDao loginDao;
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private SearchDao searchDAO;
 	private ModelAndView mv;
 	
 	@RequestMapping("login.htm")
@@ -61,4 +67,14 @@ public class AddressBookController {
 		}
 		return msg;
 	}
+	
+	@RequestMapping("search.htm")
+	public @ResponseBody UserInfo searchContact(@RequestParam("userId") String userId) {
+		
+		System.out.println("Inside Controller searchContact---" + userId);
+
+		return searchDAO.SearchContact(userId);
+
+	}
+	
 }
