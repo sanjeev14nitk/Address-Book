@@ -1,0 +1,12 @@
+String searchquery="SELECT firstname as fName, lastname as lName, gender as gender, dob as dateOfBirth FROM project.generalinfo WHERE userid = ? ";
+
+String searchquery =
+"SELECT A.firstname as fName, A.lastname as lName, A.gender as gender, A.dob as dateOfBirth," + 
+"B.address as streetAddr, B.city as city, B.state as state, B.zip as zipCode," + 
+"C.homephone as homePhone, c.officeno as ofcPhone, C.cellno as cellPhone, C.email as email" + 
+"FROM project.generalinfo A" + 
+"JOIN project.address B ON A.userid = B.userid" + 
+"JOIN project.contactinfo C ON B.userid = C.userid" + 
+"WHERE A.userid = ?";
+
+List<UserInfo> userinfo = jdbctemplate.query(searchquery, new Object[] {userId}, new BeanPropertyRowMapper<UserInfo>(UserInfo.class));
